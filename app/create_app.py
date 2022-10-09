@@ -59,9 +59,15 @@ def create_app():
         db.init_app(app)
         db.drop_all()
         db.create_all()
-        offer = load_offer('/Users/sofya/PycharmProjects/hw_lesson16/data/offers.json')
-        user = load_user('/Users/sofya/PycharmProjects/hw_lesson16/data/users.json')
-        order = load_order('/Users/sofya/PycharmProjects/hw_lesson16/data/orders.json')
+
+        with open('data/offers.json') as file:
+            json_data = json.load(file)
+
+        with open('data/users.json') as file:
+            json_data = json.load(file)
+
+        with open('data/orders.json') as file:
+            json_data = json.load(file)
 
     return app
 
