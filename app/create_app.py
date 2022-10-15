@@ -5,8 +5,6 @@ from flask import Flask
 from app import db
 from app.models import Offer, Order, User
 
-
-
 def load_data(path):
     with open(path) as file:
         return json.load(file)
@@ -60,13 +58,13 @@ def create_app():
         db.drop_all()
         db.create_all()
 
-        with open('data/offers.json') as file:
+        with open('../data/offers.json') as file:
             json_data = json.load(file)
 
-        with open('data/users.json') as file:
+        with open('../data/users.json') as file:
             json_data = json.load(file)
 
-        with open('data/orders.json') as file:
+        with open('../data/orders.json') as file:
             json_data = json.load(file)
 
     return app

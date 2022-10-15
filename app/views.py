@@ -2,9 +2,8 @@ import json
 
 from flask import current_app as app, request
 
-from app.create_app import db, app
+from app.create_app import app, db
 from app.models import User, Order, Offer
-
 
 @app.route('/users', methods=['GET', 'POST'])
 def work_users():
@@ -175,6 +174,7 @@ def work_order(bid):
 
 @app.route('/offers', methods=['GET', 'POST'])
 def work_offers():
+
     if request.method == 'GET':
         result = []
 
@@ -203,6 +203,7 @@ def work_offers():
             mimetype='application/json',
             status=200
         )
+
 
 @app.route('/offers', methods=['GET', 'PUT', 'DELETE'])
 def work_offer(bid):
@@ -255,6 +256,8 @@ def work_offer(bid):
             mimetype='application/json',
             status=200
         )
+
+
 if __name__ == '__main__':
     app.run('localhost', port=8080, debug=True)
 
