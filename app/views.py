@@ -46,11 +46,14 @@ def work_user(bid):
                 user.return_data()
             )
 
+            db.session.commit()
+
         return app.response_class(
             json.dumps(result),
             mimetype='application/json',
             status=200
         )
+
 
     if request.method == 'PUT':
         data = request.json
